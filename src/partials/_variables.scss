@@ -1,0 +1,85 @@
+// MARK: BREAKPOINTS
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1280px;
+
+// MARK: BASE SIZES
+$base-size-increment: calc(0.25rem); // corresponding to 4px, assumning default browser font size is 16px
+
+// MARK: COLORS
+$primary-black: #323232;
+$primary-blue: #0095ff;
+$primary-silver: #afafaf;
+$primary-white: #ffffff;
+$secondary-black: #000000;
+$secondary-blue: #0065AD;
+$secondary-mercury: #e1e1e1;
+$secondary-alabaster: #fafafa;
+
+// MARK: TEXT
+$page-header-text-size-desktop: calc(8.25*$base-size-increment);
+$page-header-text-size-mobile: calc(6*$base-size-increment);
+$page-header-line-height-desktop: calc(11*$base-size-increment);
+$page-header-line-height-mobile: calc(8*$base-size-increment);
+$page-header-text-weight: 700;
+
+$section-header-text-size-desktop: calc(3*$base-size-increment);
+$section-header-text-size-mobile: calc(3*$base-size-increment);
+$section-header-line-height-desktop: calc(5*$base-size-increment);
+$section-header-line-height-mobile: calc(5*$base-size-increment);
+$section-header-text-weight: 700;
+
+$subheader-text-size-desktop: calc(3.5*$base-size-increment);
+$subheader-text-size-mobile: calc(3.25*$base-size-increment);
+$subheader-line-height-desktop: calc(5.5*$base-size-increment);
+$subheader-line-height-mobile: calc(4.5*$base-size-increment);
+$subheader-text-weight: 700;
+
+$body-text-size-desktop: calc(3.5*$base-size-increment);
+$body-text-size-mobile: calc(3.25*$base-size-increment);
+$body-line-height-desktop: calc(5.5*$base-size-increment);
+$body-line-height-mobile: calc(4.5*$base-size-increment);
+$body-text-weight: 400;
+
+// MARK: LABELS & BUTTONS
+$label-text-size-desktop: calc(3*$base-size-increment);
+$label-text-size-mobile: calc(2.5*$base-size-increment);
+$label-line-height-desktop: calc(5*$base-size-increment);
+$label-line-height-mobile: calc(5*$base-size-increment);
+$label-text-weight: 700;
+
+$button-height: 40px;
+$button-width: 150px;
+$button-radius: 4px;
+
+// MARK: PADDUNG
+$padding-before-headlines-desktop: calc(9*$base-size-increment);
+$padding-after-headlines-desktop: calc(6*$base-size-increment);
+$padding-between-components-desktop: calc(6*$base-size-increment);
+
+$padding-before-headlines-mobile: calc(6*$base-size-increment);
+$padding-after-headlines-mobile: calc(4*$base-size-increment);
+$padding-between-components-mobile: calc(4*$base-size-increment);
+
+// MARK: LOGO
+$logo-max-height: 25px;
+$logo-max-width: 120px;
+
+// MARK: VIDEO
+$video-player-opacity: 50%;
+$video-scrubbing-icon-size: 16px;
+$video-preview-radius: 4px;
+
+// MARK: FORM
+$form-field-height-desktop: 40px;
+$form-field-height-mobile: 36px;
+$form-field-max-width-desktop: 240px;
+$form-field-radius: 4px;
+$form-field-padding-desktop: calc(4*$base-size-increment);
+$form-field-padding-mobile: calc(3*$base-size-increment);
+$form-field-label-padding: $base-size-increment;
+$form-field-border-width: 1px;
+$form-field-border-width-active: 2px;
+
+// MARK: AVATAR
+$avatar-dimension-desktop: 40px;
+$avatar-dimension-mobile: 36px;
