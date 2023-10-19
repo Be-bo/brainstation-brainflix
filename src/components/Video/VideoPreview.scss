@@ -1,0 +1,14 @@
+.video-preview{
+    display: flex;
+
+    &__thumbnail{
+        min-width: 20%;
+        min-height: 50px;
+        background-color: black;
+    }
+
+    &__info{
+        display: flex;
+        flex-direction: column;
+    }
+}

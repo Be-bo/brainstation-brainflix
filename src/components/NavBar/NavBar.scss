@@ -1,0 +1,23 @@
+@import '../../partials/variables';
+@import '../../partials/mixins';
+@import '../../partials/element_tags';
+
+.nav-bar{
+    display: flex;
+    flex-direction: column;
+
+    &__search-container{
+        display: flex;
+    }
+
+    &__avatar{
+        height: $avatar-dimension-mobile;
+        width: $avatar-dimension-mobile;
+        border-radius: 50%;
+        background-color: black;
+    }
+
+    &__btn{
+        
+    }
+}

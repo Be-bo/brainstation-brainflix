@@ -1,0 +1,17 @@
+@import '../../partials/variables';
+
+.comment-input-container{
+    display: flex;
+
+    &__avatar{
+        width: $avatar-dimension-mobile;
+        height: $avatar-dimension-mobile;
+        border-radius: 50%;
+        background-color: black;
+    }
+
+    &__field-container{
+        display: flex;
+        flex-direction: column;
+    }
+}

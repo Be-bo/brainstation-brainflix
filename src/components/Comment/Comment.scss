@@ -1,0 +1,24 @@
+@import '../../partials/variables';
+
+.comment{
+    display: flex;
+    border-bottom: 1px solid $secondary-mercury;
+
+    &__text-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__avatar{
+        height: $avatar-dimension-mobile;
+        width: $avatar-dimension-mobile;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: black;
+    }
+}
