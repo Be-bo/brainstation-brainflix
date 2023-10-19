@@ -18,7 +18,7 @@ h1{
 
     @include tablet{
         font-weight: $page-header-text-weight;
-        font-text-size: $page-header-text-size-desktop;
+        font-size: $page-header-text-size-desktop;
         padding-top: $padding-before-headlines-desktop;
     }
 }
@@ -29,7 +29,7 @@ h2{
     padding-top: $padding-before-headlines-mobile;
     @include tablet{
         font-weight: $section-header-text-weight;
-        font-text-size: $section-header-text-size-desktop;
+        font-size: $section-header-text-size-desktop;
         padding-top: $padding-before-headlines-desktop;
     }
 }
@@ -38,9 +38,12 @@ h3{
     font-weight: $subheader-text-weight;
     font-size: $subheader-text-size-mobile;
     padding-top: $padding-before-headlines-mobile;
+    text-transform: uppercase;
+    color: $primary-silver;
+
     @include tablet{
         font-weight: $subheader-text-weight;
-        font-text-size: $subheader-text-size-desktop;
+        font-size: $subheader-text-size-desktop;
         padding-top: $padding-before-headlines-desktop;
     }
 }
@@ -49,15 +52,21 @@ p{
     font-size: $body-text-size-mobile;
     font-weight: $body-text-weight;
     padding-top: $padding-between-components-mobile;
+
     @include tablet{
-        font-text-size: $body-text-size-desktop;
+        font-size: $body-text-size-desktop;
         font-weight: $body-text-weight;
         padding-top: $padding-between-components-desktop;
     }
 }
 
 button{
+    height: $button-height;
     text-transform: uppercase;
+    background-color: $primary-blue;
+    border-radius: $button-radius;
+    border: none;
+    color: $primary-white;
 }
 
 label{
@@ -65,22 +74,26 @@ label{
     color: $primary-silver;
     font-size: $body-text-size-mobile;
     @include tablet{
-        font-text-size: $body-text-size-desktop;
+        font-size: $body-text-size-desktop;
         font-weight: $body-text-weight;
     }
 }
 
 input{
+    height: $form-field-height-mobile;
     font-family: 'Avenir Next', sans-serif;
     background-color: $secondary-alabaster;
     border: 1px solid $primary-silver;
     border-radius: 4px;
     outline: none;
-
     font-size: $body-text-size-mobile;
     font-weight: $body-text-weight;
+    flex: 1;
+
     @include tablet{
-        font-text-size: $body-text-size-desktop;
+        max-width: $form-field-max-width-desktop;
+        height: $form-field-height-desktop;
+        font-size: $body-text-size-desktop;
         font-weight: $body-text-weight;
     }
 }
@@ -95,11 +108,12 @@ textarea{
     border: 1px solid $primary-silver;
     border-radius: 4px;
     outline: none;
+    resize: none;
 
     font-size: $body-text-size-mobile;
     font-weight: $body-text-weight;
     @include tablet{
-        font-text-size: $body-text-size-desktop;
+        font-size: $body-text-size-desktop;
         font-weight: $body-text-weight;
     }
 }

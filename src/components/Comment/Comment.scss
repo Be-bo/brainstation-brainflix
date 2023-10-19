@@ -3,10 +3,12 @@
 .comment{
     display: flex;
     border-bottom: 1px solid $secondary-mercury;
+    margin-top: $padding-between-components-mobile;
 
     &__text-container{
         display: flex;
         flex-direction: column;
+        padding: 0 $padding-between-components-mobile $padding-between-components-mobile $padding-between-components-mobile;
     }
 
     &__header{
@@ -17,8 +19,16 @@
     &__avatar{
         height: $avatar-dimension-mobile;
         width: $avatar-dimension-mobile;
-        aspect-ratio: 1;
+        min-width: $avatar-dimension-mobile;
         border-radius: 50%;
         background-color: black;
+    }
+
+    &__text{
+        padding:0;
+    }
+
+    &__text-content{
+        margin-top: calc($padding-between-components-mobile/2);
     }
 }

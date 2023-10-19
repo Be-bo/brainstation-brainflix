@@ -2,16 +2,55 @@
 
 .comment-input-container{
     display: flex;
+    border-bottom: 1px solid $secondary-mercury;
 
     &__avatar{
         width: $avatar-dimension-mobile;
         height: $avatar-dimension-mobile;
         border-radius: 50%;
         background-color: black;
+        margin-top: calc($padding-between-components-mobile*1.5);
+        background-image: url("../../assets/Images/Mohan-muruge.jpg");
+        background-size: cover;
+        background-position: left;
     }
 
     &__field-container{
         display: flex;
+        flex: 1;
         flex-direction: column;
+        padding: 0 $padding-between-components-mobile $padding-between-components-mobile $padding-between-components-mobile;
+    }
+
+    &__field-title{
+        padding: 0;
+    }
+
+    &__text-field{
+        margin: calc($padding-between-components-mobile/2) 0 $padding-between-components-mobile 0;
+        flex: 1;
+        padding-top: calc($padding-between-components-mobile/2);
+        padding-left: calc($padding-between-components-mobile/2);
+    }
+
+    &__btn-container{
+        display: flex;
+        position: relative;
+    }
+
+    &__btn{
+        flex: 1;
+        cursor: pointer;
+    }
+
+    &__btn-icon{
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background-image: url('../../assets/Icons/add_comment.svg');
+        background-repeat: no-repeat;
+        top: calc($padding-between-components-mobile/2);
+        left: calc($padding-between-components-mobile/2);
+        cursor: pointer;
     }
 }

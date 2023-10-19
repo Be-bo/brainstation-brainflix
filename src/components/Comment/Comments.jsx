@@ -5,9 +5,10 @@ import Comment from './Comment';
 
 export default function Comments() {
   return (
-    <div>
-      <p>3 Comments</p>
+    <div className='comments'>
+      <h2 className='comments__title'>3 Comments</h2>
       <InputComment />
+      <Comment />
       <Comment />
     </div>
   )

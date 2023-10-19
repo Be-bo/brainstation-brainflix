@@ -3,12 +3,52 @@
 .details{
     display: flex;
     flex-direction: column;
+    padding: $padding-between-components-mobile;
 
     &__info{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
+        gap: $padding-between-components-mobile;
+        padding: $padding-between-components-mobile 0;
         border-top: 1px solid $secondary-mercury;
         border-bottom: 1px solid $secondary-mercury;
+        margin-top: $padding-between-components-mobile;
+    }
+
+    &__info-text{
+        padding: 0;
+    }
+
+    &__views-container{
+        position: relative;
+    }
+
+    &__likes-container{
+        position: relative;
+    }
+
+    &__views-icon{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-image: url("../../assets/Icons/views.svg");
+        background-repeat: no-repeat;
+    }
+
+    &__likes-icon{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-image: url("../../assets//Icons/likes.svg");
+        background-repeat: no-repeat;
+    }
+
+    &__views-count{
+        padding-left: calc(30px);
+    }
+
+    &__likes-count{
+        padding-left: calc(30px);
     }
 }

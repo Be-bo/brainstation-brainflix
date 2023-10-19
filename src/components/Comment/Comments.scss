@@ -1,0 +1,10 @@
+@import '../../partials/variables';
+
+.comments{
+    padding: 0 $padding-between-components-mobile;
+
+    &__title{
+        padding: 0;
+        margin-bottom: $padding-after-headlines-mobile;
+    }
+}
