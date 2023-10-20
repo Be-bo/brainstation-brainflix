@@ -15,8 +15,8 @@
         flex-direction: column;
         flex: 1;
         justify-content: space-between;
-        margin-left: $padding-between-components-mobile;
-        padding: calc($padding-between-components-mobile/3) 0;
+        margin-left: var(--base-padding);
+        padding: calc(var(--base-padding)/3) 0;
     }
 
     &__text{

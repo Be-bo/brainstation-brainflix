@@ -3,17 +3,17 @@
 .details{
     display: flex;
     flex-direction: column;
-    padding: $padding-between-components-mobile;
+    padding: var(--base-padding);
 
     &__info{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: $padding-between-components-mobile;
-        padding: $padding-between-components-mobile 0;
+        gap: var(--base-padding);
+        padding: var(--base-padding) 0;
         border-top: 1px solid $secondary-mercury;
         border-bottom: 1px solid $secondary-mercury;
-        margin-top: $padding-between-components-mobile;
+        margin-top: var(--base-padding);
     }
 
     &__info-text{

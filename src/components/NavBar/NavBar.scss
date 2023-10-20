@@ -5,12 +5,12 @@
 .nav-bar{
     display: flex;
     flex-direction: column;
-    padding: $padding-between-components-mobile;
+    padding: var(--base-padding);
 
     &__logo{
         max-width: $logo-max-width;
         max-height: $logo-max-height;
-        margin-bottom: $padding-between-components-mobile;
+        margin-bottom: var(--base-padding);
         margin-left: auto;
         margin-right: auto;
     }
@@ -28,7 +28,7 @@
 
     &__search-field{
         flex:1;
-        padding-left: calc($padding-between-components-mobile*2);
+        padding-left: calc(var(--base-padding)*2);
     }
 
     &__search-icon{
@@ -36,16 +36,16 @@
         width: 30px;
         position: absolute;
         top: 25%;
-        left: calc($padding-between-components-mobile/2);
+        left: calc(var(--base-padding)/2);
         background-image: url("../../assets/Icons/search.svg");
         background-repeat: no-repeat;
     }
 
     &__avatar{
-        height: $avatar-dimension-mobile;
-        width: $avatar-dimension-mobile;
+        height: var(--avatar-dimension);
+        width: var(--avatar-dimension);
         border-radius: 50%;
-        margin-left: $padding-between-components-mobile;
+        margin-left: var(--base-padding);
         background-image: url('../../assets/Images/Mohan-muruge.jpg');
         background-position: left;
         background-size: cover;
@@ -57,7 +57,7 @@
     }
 
     &__btn{
-        margin-top: $padding-between-components-mobile;
+        margin-top: var(--base-padding);
         flex: 1;
         cursor: pointer;
     }
@@ -67,7 +67,7 @@
         width: 30px;
         position: absolute;
         top: 40%;
-        left: calc($padding-between-components-mobile/2);
+        left: calc(var(--base-padding)/2);
         background-image: url("../../assets/Icons/upload.svg");
         background-repeat: no-repeat;
         color: $primary-white;

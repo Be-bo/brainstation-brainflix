@@ -12,52 +12,25 @@ body{
 }
 
 h1{
-    font-weight: $page-header-text-weight;
-    font-size: $page-header-text-size-mobile;
-    padding-top: $padding-before-headlines-mobile;
-
-    @include tablet{
-        font-weight: $page-header-text-weight;
-        font-size: $page-header-text-size-desktop;
-        padding-top: $padding-before-headlines-desktop;
-    }
+    font-weight: $bold-font-weight;
+    font-size: var(--h1-font-size);
 }
 
 h2{
-    font-weight: $section-header-text-weight;
-    font-size: $section-header-text-size-mobile;
-    padding-top: $padding-before-headlines-mobile;
-    @include tablet{
-        font-weight: $section-header-text-weight;
-        font-size: $section-header-text-size-desktop;
-        padding-top: $padding-before-headlines-desktop;
-    }
+    font-weight: $bold-font-weight;
+    font-size: var(--h2-font-size);
 }
 
 h3{
-    font-weight: $subheader-text-weight;
-    font-size: $subheader-text-size-mobile;
-    padding-top: $padding-before-headlines-mobile;
+    font-weight: $bold-font-weight;
+    font-size: var(--h3-font-size);
     text-transform: uppercase;
-    color: $primary-silver;
-
-    @include tablet{
-        font-weight: $subheader-text-weight;
-        font-size: $subheader-text-size-desktop;
-        padding-top: $padding-before-headlines-desktop;
-    }
+    color: var(--primary-silver);
 }
 
 p{
-    font-size: $body-text-size-mobile;
-    font-weight: $body-text-weight;
-    padding-top: $padding-between-components-mobile;
-
-    @include tablet{
-        font-size: $body-text-size-desktop;
-        font-weight: $body-text-weight;
-        padding-top: $padding-between-components-desktop;
-    }
+    font-size: var(--p-font-size);
+    font-weight: $normal-font-weight;
 }
 
 button{
@@ -69,33 +42,17 @@ button{
     color: $primary-white;
 }
 
-label{
-    text-transform: uppercase;
-    color: $primary-silver;
-    font-size: $body-text-size-mobile;
-    @include tablet{
-        font-size: $body-text-size-desktop;
-        font-weight: $body-text-weight;
-    }
-}
-
 input{
-    height: $form-field-height-mobile;
+    height: var(--form-field-height);
     font-family: 'Avenir Next', sans-serif;
     background-color: $secondary-alabaster;
     border: 1px solid $primary-silver;
     border-radius: 4px;
     outline: none;
-    font-size: $body-text-size-mobile;
-    font-weight: $body-text-weight;
+    font-size: var(--p-font-size);
+    font-weight: $normal-font-weight;
     flex: 1;
-
-    @include tablet{
-        max-width: $form-field-max-width-desktop;
-        height: $form-field-height-desktop;
-        font-size: $body-text-size-desktop;
-        font-weight: $body-text-weight;
-    }
+    max-width: var(--form-field-max-width);
 }
 
 input:focus{
@@ -109,13 +66,8 @@ textarea{
     border-radius: 4px;
     outline: none;
     resize: none;
-
-    font-size: $body-text-size-mobile;
-    font-weight: $body-text-weight;
-    @include tablet{
-        font-size: $body-text-size-desktop;
-        font-weight: $body-text-weight;
-    }
+    font-size: var(--p-font-size);
+    font-weight: $normal-font-weight;
 }
 
 textarea:focus{

@@ -3,12 +3,12 @@
 .comment{
     display: flex;
     border-bottom: 1px solid $secondary-mercury;
-    margin-top: $padding-between-components-mobile;
+    margin-top: var(--base-padding);
 
     &__text-container{
         display: flex;
         flex-direction: column;
-        padding: 0 $padding-between-components-mobile $padding-between-components-mobile $padding-between-components-mobile;
+        padding: 0 var(--base-padding) var(--base-padding) var(--base-padding);
     }
 
     &__header{
@@ -17,9 +17,9 @@
     }
 
     &__avatar{
-        height: $avatar-dimension-mobile;
-        width: $avatar-dimension-mobile;
-        min-width: $avatar-dimension-mobile;
+        height: var(--avatar-dimension);
+        width: var(--avatar-dimension);
+        min-width: var(--avatar-dimension);
         border-radius: 50%;
         background-color: black;
     }
@@ -29,6 +29,6 @@
     }
 
     &__text-content{
-        margin-top: calc($padding-between-components-mobile/2);
+        margin-top: calc(var(--base-padding)/2);
     }
 }

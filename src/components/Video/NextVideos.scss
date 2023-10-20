@@ -3,10 +3,10 @@
 .next-videos{
     display: flex;
     flex-direction: column;
-    padding: $padding-between-components-mobile;
+    padding: var(--base-padding);
 
     &__title{
         padding-top: 0;
-        padding-bottom: $padding-after-headlines-mobile;
+        padding-bottom: var(--base-padding);
     }
 }
