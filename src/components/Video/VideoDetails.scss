@@ -1,4 +1,5 @@
 @import '../../partials/variables';
+@import '../../partials/mixins';
 
 .details{
     display: flex;
@@ -7,13 +8,35 @@
 
     &__info{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         gap: var(--base-padding);
-        padding: var(--base-padding) 0;
+        padding: var(--base-padding) 0 0 0;
         border-top: 1px solid $secondary-mercury;
         border-bottom: 1px solid $secondary-mercury;
         margin-top: var(--base-padding);
+
+        @include tablet{
+            grid-template-columns: auto auto 1fr auto auto;
+            grid-template-rows: 1fr;
+            padding: var(--base-padding) 0;
+            border-top: none;
+            padding-top: 0;
+        }
+    }
+
+    &__date{
+        @include tablet{
+            grid-row: 1;
+            grid-column: 2;
+        }
+    }
+
+    &__spacer{
+        @include tablet{
+            grid-row: 1;
+            grid-column: 3;
+        }
     }
 
     &__info-text{
@@ -46,10 +69,19 @@
 
     &__views-count{
         padding-left: calc(30px);
+
+        @include tablet{
+            grid-row: 1;
+            grid-column: 4;
+        }
     }
 
     &__likes-count{
         padding-left: calc(30px);
+        @include tablet{
+            grid-row: 1;
+            grid-column: 5;
+        }
     }
 
     &__description{

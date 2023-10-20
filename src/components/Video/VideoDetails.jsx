@@ -12,12 +12,14 @@ export default function VideoDetails() {
 					<i className="details__views-icon"></i>
 					<p className="details__info-text details__views-count">1,001,023</p>
 				</div>
-				<p className="details__info-text">07/11/2021</p>
+				<p className="details__info-text details__date">07/11/2021</p>
 
 				<div className="details__likes-container">
 					<i className="details__likes-icon"></i>
 					<p className="details__info-text details__likes-count">110,985</p>
 				</div>
+
+				<div className="details__spacer"></div>
 			</div>
 
 			<p className="details__description">
