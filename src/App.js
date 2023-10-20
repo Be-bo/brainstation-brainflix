@@ -15,8 +15,10 @@ function App() {
 				<Hero />
 			</header>
 			<main>
-				<VideoDetails />
-				<Comments />
+				<div>
+					<VideoDetails />
+					<Comments />
+				</div>
 				<NextVideos />
 			</main>
 		</div>

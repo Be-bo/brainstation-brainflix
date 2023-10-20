@@ -11,6 +11,15 @@ body{
     font-family: 'Avenir Next', sans-serif;
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+
+    @include desktop{
+        flex-direction: row;
+    }
+}
+
 h1{
     font-weight: $bold-font-weight;
     font-size: var(--h1-font-size);
@@ -31,6 +40,14 @@ h3{
 p{
     font-size: var(--p-font-size);
     font-weight: $normal-font-weight;
+}
+
+i{
+    height: $icon-dimen;
+    width: $icon-dimen;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 button{

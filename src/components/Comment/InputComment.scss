@@ -1,4 +1,5 @@
 @import '../../partials/variables';
+@import '../../partials/mixins';
 
 .comment-input-container{
     display: flex;
@@ -19,7 +20,19 @@
         display: flex;
         flex: 1;
         flex-direction: column;
-        padding: 0 var(--base-padding) var(--base-padding) var(--base-padding);
+        padding: 0 0 var(--base-padding) var(--base-padding);
+    }
+
+    &__field{
+        display: flex;
+        flex-direction: column;
+        margin: calc(var(--base-padding)/2) 0 0 0;
+        gap: var(--base-padding);
+
+        @include tablet{
+            flex-direction: row;
+            height: $button-height;
+        }
     }
 
     &__field-title{
@@ -27,7 +40,6 @@
     }
 
     &__text-field{
-        margin: calc(var(--base-padding)/2) 0 var(--base-padding) 0;
         flex: 1;
         padding-top: calc(var(--base-padding)/2);
         padding-left: calc(var(--base-padding)/2);
@@ -41,14 +53,15 @@
     &__btn{
         flex: 1;
         cursor: pointer;
+
+        @include tablet{
+            width: $button-width;
+        }
     }
 
     &__btn-icon{
-        width: 30px;
-        height: 30px;
         position: absolute;
         background-image: url('../../assets/Icons/add_comment.svg');
-        background-repeat: no-repeat;
         top: calc($button-height/5);
         left: calc(var(--base-padding)/2);
         cursor: pointer;
