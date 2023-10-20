@@ -51,4 +51,8 @@
     &__likes-count{
         padding-left: calc(30px);
     }
+
+    &__description{
+        margin-top: var(--base-padding);
+    }
 }

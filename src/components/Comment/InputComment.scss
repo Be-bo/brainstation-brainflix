@@ -9,7 +9,7 @@
         height: var(--avatar-dimension);
         border-radius: 50%;
         background-color: black;
-        margin-top: calc(var(--base-padding)*1.5);
+        margin-top: calc(var(--base-padding)/1.5 + var(--h3-font-size));
         background-image: url("../../assets/Images/Mohan-muruge.jpg");
         background-size: cover;
         background-position: left;
@@ -49,7 +49,7 @@
         position: absolute;
         background-image: url('../../assets/Icons/add_comment.svg');
         background-repeat: no-repeat;
-        top: calc(var(--base-padding)/2);
+        top: calc($button-height/5);
         left: calc(var(--base-padding)/2);
         cursor: pointer;
     }

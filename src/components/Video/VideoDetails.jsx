@@ -20,7 +20,7 @@ export default function VideoDetails() {
 				</div>
 			</div>
 
-			<p>
+			<p className="details__description">
 				On a gusty day in Southern Utah, a group of 25 daring mountain bikers blew
 				the doors off what is possible on two wheels, unleashing some of the biggest
 				moments the sport has ever seen. While mother nature only allowed for one
