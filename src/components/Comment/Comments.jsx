@@ -1,15 +1,17 @@
-import React from 'react';
-import './Comments.scss';
-import InputComment from './InputComment';
-import Comment from './Comment';
+import React from "react";
+import "./Comments.scss";
+import InputComment from "./InputComment";
+import Comment from "./Comment";
 
-export default function Comments() {
-  return (
-    <div className='comments'>
-      <h2 className='comments__title'>3 Comments</h2>
-      <InputComment />
-      <Comment />
-      <Comment />
-    </div>
-  )
+export default function Comments({ selectedVideoDetails }) {
+	return (
+		<div className="comments">
+			<h2 className="comments__title">{selectedVideoDetails.comments.length} Comments</h2>
+			<InputComment />
+			<Comment />
+			{selectedVideoDetails.comments.map((comment) => 
+				<Comment key={comment.id} comment={comment} />
+			)}
+		</div>
+	);
 }

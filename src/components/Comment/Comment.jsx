@@ -1,16 +1,20 @@
 import React from 'react';
 import './Comment.scss';
+import { getFormattedDate } from '../../helpers';
 
-export default function Comment() {
+export default function Comment({comment}) {
+  
+  if(!comment) return null;
+
   return (
     <div className='comment'>
       <img className='comment__avatar' alt='User avatar'/>
       <div className='comment__text-container'>
         <div className='comment__header'>
-          <h2 className='comment__text'>Michael Lyons</h2>
-          <p className='comment__text'>08/09/2021</p>
+          <h2 className='comment__text'>{comment.name ? comment.name : 'No name available'}</h2>
+          <p className='comment__text'>{comment.timestamp ? getFormattedDate(comment.timestamp) : 'No timestamp available'}</p>
         </div>
-        <p className='comment__text comment__text-content'>They BLEW the ROOF off at their last event, once everyone started figuring out they were going. This is still simply the greatest opening of an event I have EVER witnessed.</p>
+        <p className='comment__text comment__text-content'>{comment.comment ? comment.comment : 'No comment available'}</p>
       </div>
     </div>
   )

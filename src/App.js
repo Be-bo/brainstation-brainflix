@@ -27,7 +27,7 @@ function App() {
 			<main>
 				<div>
 					<VideoDetails selectedVideoDetails={selectedVideoDetails} />
-					<Comments />
+					<Comments selectedVideoDetails={selectedVideoDetails}/>
 				</div>
 				<NextVideos filteredVideos={filteredVideos} videoClick={handleVideoClick} />
 			</main>

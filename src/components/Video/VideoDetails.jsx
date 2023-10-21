@@ -1,5 +1,6 @@
 import React from "react";
 import "./VideoDetails.scss";
+import { getFormattedDate } from "../../helpers";
 
 export default function VideoDetails({selectedVideoDetails}) {
 	return (
@@ -12,7 +13,7 @@ export default function VideoDetails({selectedVideoDetails}) {
 					<i className="details__views-icon"></i>
 					<p className="details__info-text details__views-count">{selectedVideoDetails.views}</p>
 				</div>
-				<p className="details__info-text details__date">{selectedVideoDetails.timestamp}</p>
+				<p className="details__info-text details__date">{getFormattedDate(selectedVideoDetails.timestamp)}</p>
 
 				<div className="details__likes-container">
 					<i className="details__likes-icon"></i>
