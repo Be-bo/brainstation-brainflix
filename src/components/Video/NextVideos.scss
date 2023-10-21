@@ -6,13 +6,9 @@
     flex-direction: column;
     min-width: 30%;
     padding: var(--base-padding);
+    gap: var(--base-padding);
 
     @include desktop{
         border-left: 1px solid $secondary-mercury;
-    }
-
-    &__title{
-        padding-top: 0;
-        padding-bottom: var(--base-padding);
     }
 }

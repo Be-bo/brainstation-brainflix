@@ -2,10 +2,12 @@
 
 .video-preview{
     display: flex;
+    cursor: pointer;
 
     &__thumbnail{
-        min-width: 20%;
-        min-height: 50px;
+        height: $thumbnail-height;
+        aspect-ratio: $thumbnail-aspect;
+        object-fit: cover;
         background-color: black;
         border-radius: $video-preview-radius;
     }
@@ -21,7 +23,6 @@
 
     &__text{
         padding-top: 0;
+        max-width: 200px;
     }
-
-
 }

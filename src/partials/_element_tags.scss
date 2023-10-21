@@ -23,11 +23,13 @@ main{
 h1{
     font-weight: $bold-font-weight;
     font-size: var(--h1-font-size);
+    max-lines: 2;
 }
 
 h2{
     font-weight: $bold-font-weight;
     font-size: var(--h2-font-size);
+    max-lines: 2;
 }
 
 h3{
@@ -35,6 +37,7 @@ h3{
     font-size: var(--h3-font-size);
     text-transform: uppercase;
     color: $primary-silver;
+    max-lines: 2;
 }
 
 p{
