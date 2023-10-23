@@ -58,16 +58,17 @@ i{
 }
 
 button{
-    height: $button-height;
+    min-height: $button-height;
     text-transform: uppercase;
     background-color: $primary-blue;
+    font-weight: $bold-font-weight;
     border-radius: $button-radius;
     border: none;
     color: $primary-white;
 }
 
 input{
-    height: var(--form-field-height);
+    min-height: var(--form-field-height);
     font-family: 'Avenir Next', sans-serif;
     background-color: $secondary-alabaster;
     border: 1px solid $primary-silver;
@@ -84,6 +85,7 @@ input:focus{
 }
 
 textarea{
+    min-height: var(--form-field-height);
     font-family: 'Avenir Next', sans-serif;
     background-color: $secondary-alabaster;
     border: 1px solid $primary-silver;

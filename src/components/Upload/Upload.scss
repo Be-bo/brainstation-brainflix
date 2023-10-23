@@ -1,0 +1,59 @@
+@import '../../partials/element_tags';
+@import '../../partials/variables';
+@import '../../partials/mixins';
+
+.upload-form{
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--base-padding) var(--base-padding) var(--base-padding);
+    border-top: 1px solid $secondary-mercury;
+
+    &__title{
+        margin-top: calc(var(--base-padding));
+    }
+
+    &__label{
+        margin-bottom: calc(var(--base-padding)/2);
+    }
+
+    &__thumbnail{
+        border-radius: $video-preview-radius;
+    }
+    
+    &__name{
+        padding: 0 calc(var(--base-padding)/2);
+    }
+
+    &__description{
+        padding: calc(var(--base-padding)/2);
+    }
+
+    &__btn-container{
+        margin-top: calc(var(--base-padding));
+        flex: 1;
+        display: flex;
+        position: relative;
+    }
+
+    &__btn{
+        flex: 1;
+    }
+
+    &__btn-icon{
+        position: absolute;
+        margin-top: calc($button-height/4.5);
+        margin-left: calc(var(--base-padding)/2);
+        background-image: url('../../assets/Icons/upload.svg');
+    }
+
+    &__cancel-btn{
+        min-height: $button-height;
+        line-height: $button-height;
+        text-transform: uppercase;
+        color: $primary-blue;
+        font-weight: $bold-font-weight;
+        text-align: center;
+        margin-top: var(--base-padding);
+    }
+
+}
