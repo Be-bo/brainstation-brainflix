@@ -8,6 +8,10 @@
     padding: 0 var(--base-padding) var(--base-padding) var(--base-padding);
     border-top: 1px solid $secondary-mercury;
 
+    @include desktop{
+        padding: 0 calc(var(--base-padding)*4.5) calc(var(--base-padding)*4.5) calc(var(--base-padding)*4.5);
+    }
+
     &__page-title{
         @include tablet{
             padding-bottom: var(--base-padding);
