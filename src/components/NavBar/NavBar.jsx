@@ -16,14 +16,13 @@ export default function NavBar() {
 			</div>
 
 			<div className="nav-bar__avatar" alt="Avatar of the current user" />
-{/* 
-			<Link to="/upload">
 
-			</Link> */}
-			<div className="nav-bar__btn-container">
+			<Link to="/upload" className="nav-bar__upload-link">
+				<div className="nav-bar__btn-container">
 					<button className="nav-bar__btn">Upload</button>
 					<i className="nav-bar__upload-icon"></i>
 				</div>
+			</Link>
 		</nav>
 	);
 }
