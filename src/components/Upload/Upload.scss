@@ -8,12 +8,48 @@
     padding: 0 var(--base-padding) var(--base-padding) var(--base-padding);
     border-top: 1px solid $secondary-mercury;
 
+    &__page-title{
+        @include tablet{
+            padding-bottom: var(--base-padding);
+            border-bottom: 1px solid $secondary-mercury;
+        }
+    }
+
+    &__input-layer{
+        display: flex;
+        flex-direction: column;
+
+        @include desktop{
+            flex-direction: row;
+        }
+    }
+
+    &__thumbnail-div{
+        display: flex;
+        flex-direction: column;
+
+        @include desktop{
+            max-width: 30%;
+        }
+    }
+
+    &__title-desc-div{
+        display: flex;
+        flex-direction: column;
+
+        @include desktop{
+            flex: 1;
+            margin-left: var(--base-padding);
+        }
+    }
+
     &__title{
         margin-top: calc(var(--base-padding));
     }
 
     &__label{
         margin-bottom: calc(var(--base-padding)/2);
+        flex: 0;
     }
 
     &__thumbnail{
@@ -22,17 +58,39 @@
     
     &__name{
         padding: 0 calc(var(--base-padding)/2);
+        max-width: 100%;
     }
 
     &__description{
         padding: calc(var(--base-padding)/2);
+
+        @include desktop{
+            flex: 1;
+        }
+    }
+
+    &__btn-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: var(--base-padding);
+
+        @include tablet{
+            flex-direction: row;
+            justify-content: right;
+            border-top: 1px solid $secondary-mercury;
+            padding-top: var(--base-padding);
+        }
     }
 
     &__btn-container{
-        margin-top: calc(var(--base-padding));
         flex: 1;
         display: flex;
         position: relative;
+
+        @include tablet{
+            max-width: $button-width;
+        }
     }
 
     &__btn{
@@ -53,7 +111,11 @@
         color: $primary-blue;
         font-weight: $bold-font-weight;
         text-align: center;
-        margin-top: var(--base-padding);
+
+        @include tablet{
+            min-width: $button-width;
+            order: -1;
+        }
     }
 
 }

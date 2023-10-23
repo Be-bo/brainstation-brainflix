@@ -69,6 +69,7 @@ button{
 
 input{
     min-height: var(--form-field-height);
+    max-height: var(--form-field-height);
     font-family: 'Avenir Next', sans-serif;
     background-color: $secondary-alabaster;
     border: 1px solid $primary-silver;
