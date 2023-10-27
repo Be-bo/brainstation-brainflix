@@ -3,30 +3,47 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import "./Upload.scss";
 import { useDropzone } from "react-dropzone";
-import axios from 'axios';
+import axios from "axios";
 import thumbnail from "../../assets/Images/Upload-video-preview.jpg";
 
 function Upload() {
-
-	// TODO: move to a JS file
 	const onDrop = (filesSelected) => {
 		console.log(filesSelected);
 		const formData = new FormData();
-		formData.append('image', filesSelected[0]);
 
-		axios.post('http://3.145.198.110:80/upload', formData, {
-			Headers:{
-				'Content-Type': 'multipart/form-data',
-			},
-		})
-		.then((res) => {
-			console.log(res.data);
-		})
-		.catch((err) => {
-			console.error(err.message);
-		})
+		formData.append("json", JSON.stringify({
+			title: "Testung Title",
+			description: "Bruh, this ain't a real description tbh, just sayin."
+		}));
+		formData.append("image", filesSelected[0]);
+
+		// const formDataObject = {};
+		// formData.forEach((value, key) => {
+		// 	formDataObject[key] = value;
+		// });
+		// console.log(JSON.stringify(formDataObject));
+
+		axios
+			.post("http://3.145.198.110:80/upload", formData, {
+			// .post("http://localhost:80/upload", formData, {
+				headers: {
+					'Content-Type': "multipart/form-data",
+				},
+			})
+			.then((res) => {
+				console.log(res.data);
+			})
+			.catch((err) => {
+				console.error(err.message);
+			});
 	};
-	const { getRootProps, getInputProps } = useDropzone({ onDrop });
+	const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+		accept: {
+			'image/png': ['.png'],
+			'image/jpeg': ['.jpeg'],
+		  },
+		onDrop
+	});
 
 	return (
 		<div>
@@ -34,10 +51,19 @@ function Upload() {
 
 			<form className="upload-form" action="submit">
 				<h1 className="upload-form__page-title upload-form__title">Upload Video</h1>
+				<div {...getRootProps({ className: "dropzone" })}>
+					<input {...getInputProps()} />
+
+					<div className="upload-form__btn-container">
+						<i className="upload-form__btn-icon" />
+						<button className="upload-form__btn" type="button">
+							Browse
+						</button>
+					</div>
+				</div>
 
 				<div className="upload-form__input-layer">
-					<div className="upload-form__thumbnail-div" {...getRootProps({ className: "dropzone" })}>
-						<input {...getInputProps()} />
+					<div className="upload-form__thumbnail-div">
 						<h3 className="upload-form__title upload-form__label">Video Thumbnail</h3>
 						<img className="upload-form__thumbnail" src={thumbnail} />
 					</div>

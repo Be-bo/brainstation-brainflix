@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar/NavBar";
 import Hero from "./Hero/Hero";
 import VideoDetails from "./Video/VideoDetails";
@@ -7,11 +7,18 @@ import Comments from "./Comment/Comments";
 import NextVideos from "./Video/NextVideos";
 import VideosData from "../data/videos.json";
 import VideosDetails from "../data/video-details.json";
+import axios from 'axios';
 
 function Main() {
 	const [selectedVideoDetails, setSelectedVideoDetails] = useState(
 		VideosDetails[0]
 	);
+
+	// useEffect(() =>{
+
+	// }, []);
+
+
 	const handleVideoClick = (video) => {
 		const newVideoDetails = VideosDetails.find(
 			(videoDetails) => videoDetails.id == video.id
