@@ -13,6 +13,7 @@ function Main() {
 	const [selectedVideoDetails, setSelectedVideoDetails] = useState({});
 	const [videos, setVideos] = useState([]);
 	const [selectedVideoId, setSelectedVideoId] = useState('');
+	const handleVideoClick = async (video) => {setSelectedVideoId(video.id);};
 
 	useEffect(() => {
 		async function fetchVideos(videoId) {
@@ -24,7 +25,7 @@ function Main() {
 				const filteredVideos = parsedVideos.items.filter((item) =>{
 					return item.id != videoId;
 				});
-				
+
 				setVideos(filteredVideos);
 
 				const detailsResponse = await axios.get(`http://3.145.198.110:80/videos/${videoId}`);
@@ -37,10 +38,6 @@ function Main() {
 
 		fetchVideos(selectedVideoId);
 	}, [selectedVideoId]);
-
-
-	// get new video that got clicked on
-	const handleVideoClick = async (video) => {setSelectedVideoId(video.id);};
 
 	return (
 		<div>

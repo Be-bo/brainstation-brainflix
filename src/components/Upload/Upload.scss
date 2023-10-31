@@ -30,6 +30,13 @@
         }
     }
 
+    &__browse-container{
+        display: flex;
+        flex-direction: row;
+        gap: var(--base-padding);
+        align-items: center;
+    }
+
     &__thumbnail-div{
         display: flex;
         flex-direction: column;

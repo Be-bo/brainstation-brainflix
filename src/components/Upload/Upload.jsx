@@ -1,31 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import "./Upload.scss";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
-import thumbnail from "../../assets/Images/Upload-video-preview.jpg";
 
 function Upload() {
-	const onDrop = (filesSelected) => {
-		console.log(filesSelected);
-		const formData = new FormData();
+	const [selectedFiles, setSelectedFiles] = useState([]);
+	const [videoTitle, setVideoTitle] = useState('');
+	const [videoDescription, setVideoDescription] = useState('');
+	const [thumbnail, setThumbnail] = useState(null);
 
+	const handleTitleChange = (e) => {setVideoTitle(e.target.value);}
+	const handleDescriptionChange = (e) => {setVideoDescription(e.target.value);}
+
+	const formData = new FormData();
+
+	const onDrop = (files) => { 
+		setSelectedFiles(files);
+		if (files[0]) {
+			const reader = new FileReader();
+			reader.onload = () => {
+			  setThumbnail(reader.result);
+			};
+			reader.readAsDataURL(files[0]);
+		  }
+	};
+	const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+		accept: {
+			'image/png': ['.png'],
+			'image/jpeg': ['.jpeg'],
+		},
+		onDrop
+	});
+
+	function uploadFormData() {
 		formData.append("json", JSON.stringify({
-			title: "Testung Title",
-			description: "Bruh, this ain't a real description tbh, just sayin."
+			title: videoTitle,
+			description: videoDescription
 		}));
-		formData.append("image", filesSelected[0]);
-
-		// const formDataObject = {};
-		// formData.forEach((value, key) => {
-		// 	formDataObject[key] = value;
-		// });
-		// console.log(JSON.stringify(formDataObject));
+		formData.append("image", selectedFiles[0]);
 
 		axios
 			.post("http://3.145.198.110:80/upload", formData, {
-			// .post("http://localhost:80/upload", formData, {
+				// .post("http://localhost:80/upload", formData, {
 				headers: {
 					'Content-Type': "multipart/form-data",
 				},
@@ -36,14 +54,7 @@ function Upload() {
 			.catch((err) => {
 				console.error(err.message);
 			});
-	};
-	const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-		accept: {
-			'image/png': ['.png'],
-			'image/jpeg': ['.jpeg'],
-		  },
-		onDrop
-	});
+	}
 
 	return (
 		<div>
@@ -54,18 +65,22 @@ function Upload() {
 				<div {...getRootProps({ className: "dropzone" })}>
 					<input {...getInputProps()} />
 
-					<div className="upload-form__btn-container">
-						<i className="upload-form__btn-icon" />
-						<button className="upload-form__btn" type="button">
-							Browse
-						</button>
+					<div className="upload-form__browse-container">
+						<div className="upload-form__btn-container">
+							<i className="upload-form__btn-icon" />
+							<button className="upload-form__btn" type="button">
+								Browse
+							</button>
+						</div>
+
+						<p>{selectedFiles[0]?.path}</p>
 					</div>
 				</div>
 
 				<div className="upload-form__input-layer">
 					<div className="upload-form__thumbnail-div">
 						<h3 className="upload-form__title upload-form__label">Video Thumbnail</h3>
-						<img className="upload-form__thumbnail" src={thumbnail} />
+						{thumbnail && <img className="upload-form__thumbnail" src={thumbnail} alt="Selected file thumbnail" />}
 					</div>
 
 					<div className="upload-form__title-desc-div">
@@ -76,6 +91,8 @@ function Upload() {
 							className="upload-form__name"
 							type="text"
 							placeholder="Add a title to your video"
+							onChange={handleTitleChange}
+							value={videoTitle}
 						/>
 
 						<h3 className="upload-form__description-title upload-form__title upload-form__label">
@@ -84,6 +101,8 @@ function Upload() {
 						<textarea
 							className="upload-form__description"
 							placeholder="Add a description to your video"
+							onChange={handleDescriptionChange}
+							value={videoDescription}
 						/>
 					</div>
 				</div>
@@ -91,7 +110,7 @@ function Upload() {
 				<div className="upload-form__btn-div">
 					<div className="upload-form__btn-container">
 						<i className="upload-form__btn-icon" />
-						<button className="upload-form__btn" type="submit">
+						<button className="upload-form__btn" type="button" onClick={uploadFormData}>
 							Publish
 						</button>
 					</div>
