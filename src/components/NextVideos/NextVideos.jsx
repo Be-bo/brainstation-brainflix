@@ -1,6 +1,6 @@
 import React from 'react';
 import './NextVideos.scss';
-import VideoPreview from './VideoPreview';
+import VideoPreview from '../VideoPreview/VideoPreview';
 import {Link} from 'react-router-dom';
 
 export default function NextVideos({ filteredVideos, videoClick }) {

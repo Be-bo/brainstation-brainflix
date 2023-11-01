@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import './Main.scss';
-import NavBar from "./NavBar/NavBar";
-import Hero from "./Hero/Hero";
-import VideoDetails from "./Video/VideoDetails";
-import Comments from "./Comment/Comments";
-import NextVideos from "./Video/NextVideos";
+import NavBar from "../NavBar/NavBar";
+import Hero from "../Hero/Hero";
+import VideoDetails from "../VideoDetails/VideoDetails";
+import Comments from "../Comments/Comments";
+import NextVideos from "../NextVideos/NextVideos";
 import axios from 'axios';
 
 

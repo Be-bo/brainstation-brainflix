@@ -1,7 +1,7 @@
 import React from 'react';
 import './Comments.scss';
-import InputComment from './InputComment';
-import Comment from './Comment';
+import InputComment from '../InputComment/InputComment';
+import Comment from '../Comment/Comment';
 
 export default function Comments({ selectedVideoDetails }) {
   return (

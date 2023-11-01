@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Main from './components/Main';
+import Main from './components/Main/Main';
 import Upload from "./components/Upload/Upload";
 
 
