@@ -1,30 +1,32 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import "./Upload.scss";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
 
 function Upload() {
+	const navigate = useNavigate();
 	const [selectedFiles, setSelectedFiles] = useState([]);
+	const [publishBtnDisabled, setPublishBtnDisabled] = useState(false);
 	const [videoTitle, setVideoTitle] = useState('');
 	const [videoDescription, setVideoDescription] = useState('');
 	const [thumbnail, setThumbnail] = useState(null);
 
-	const handleTitleChange = (e) => {setVideoTitle(e.target.value);}
-	const handleDescriptionChange = (e) => {setVideoDescription(e.target.value);}
+	const handleTitleChange = (e) => { setVideoTitle(e.target.value); }
+	const handleDescriptionChange = (e) => { setVideoDescription(e.target.value); }
 
 	const formData = new FormData();
 
-	const onDrop = (files) => { 
+	const onDrop = (files) => {
 		setSelectedFiles(files);
 		if (files[0]) {
 			const reader = new FileReader();
 			reader.onload = () => {
-			  setThumbnail(reader.result);
+				setThumbnail(reader.result);
 			};
 			reader.readAsDataURL(files[0]);
-		  }
+		}
 	};
 	const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
 		accept: {
@@ -35,25 +37,28 @@ function Upload() {
 	});
 
 	function uploadFormData() {
-		formData.append("json", JSON.stringify({
-			title: videoTitle,
-			description: videoDescription
-		}));
-		formData.append("image", selectedFiles[0]);
-
-		axios
-			.post("http://3.145.198.110:80/upload", formData, {
-				// .post("http://localhost:80/upload", formData, {
-				headers: {
-					'Content-Type': "multipart/form-data",
-				},
-			})
-			.then((res) => {
-				console.log(res.data);
-			})
-			.catch((err) => {
-				console.error(err.message);
-			});
+		if(videoTitle.length > 3 && videoDescription.length > 3 && thumbnail){
+			setPublishBtnDisabled(true);
+			formData.append("json", JSON.stringify({
+				title: videoTitle,
+				description: videoDescription
+			}));
+			formData.append("image", selectedFiles[0]);
+	
+			axios
+				.post("http://3.145.198.110:80/upload", formData, {
+					headers: {
+						'Content-Type': "multipart/form-data",
+					},
+				})
+				.then((res) => {
+					navigate('/');
+					console.log(res.data);
+				})
+				.catch((err) => {
+					console.error(err.message);
+				});
+		}
 	}
 
 	return (
@@ -66,22 +71,24 @@ function Upload() {
 					<input {...getInputProps()} />
 
 					<div className="upload-form__browse-container">
-						<div className="upload-form__btn-container">
+						<div className="upload-form__btn-container upload-form__browse-btn">
 							<i className="upload-form__btn-icon" />
-							<button className="upload-form__btn" type="button">
+							<button className="upload-form__btn upload-form__browse-btn" type="button">
 								Browse
 							</button>
 						</div>
-
 						<p>{selectedFiles[0]?.path}</p>
 					</div>
 				</div>
 
 				<div className="upload-form__input-layer">
-					<div className="upload-form__thumbnail-div">
-						<h3 className="upload-form__title upload-form__label">Video Thumbnail</h3>
-						{thumbnail && <img className="upload-form__thumbnail" src={thumbnail} alt="Selected file thumbnail" />}
-					</div>
+
+					{thumbnail &&
+						<div className="upload-form__thumbnail-div">
+							<h3 className="upload-form__title upload-form__label">Video Thumbnail</h3>
+							{thumbnail && <img className="upload-form__thumbnail" src={thumbnail} alt="Selected file thumbnail" />}
+						</div>
+					}
 
 					<div className="upload-form__title-desc-div">
 						<h3 className="upload-form__video-title upload-form__title upload-form__label">
@@ -110,7 +117,7 @@ function Upload() {
 				<div className="upload-form__btn-div">
 					<div className="upload-form__btn-container">
 						<i className="upload-form__btn-icon" />
-						<button className="upload-form__btn" type="button" onClick={uploadFormData}>
+						<button className="upload-form__btn" type="button" onClick={uploadFormData} disabled={publishBtnDisabled}>
 							Publish
 						</button>
 					</div>
