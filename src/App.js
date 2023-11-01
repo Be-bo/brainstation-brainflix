@@ -9,6 +9,7 @@ function App() {
 			<div>
 				<Routes>
 					<Route path="/" element={ <Main />}/>
+					<Route path="/videos/:videoId" element={<Main />}/>
 					<Route path="/upload" element={<Upload />}/>
 				</Routes>
 			</div>

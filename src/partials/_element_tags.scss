@@ -50,6 +50,10 @@ a{
     text-decoration: none;
 }
 
+a:visited{
+    color: inherit;
+}
+
 i{
     height: $icon-dimen;
     width: $icon-dimen;

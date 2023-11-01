@@ -10,10 +10,10 @@ import axios from 'axios';
 
 
 function Main() {
+	const navigate = useNavigate();
+	const { videoId } = useParams('');
 	const [selectedVideoDetails, setSelectedVideoDetails] = useState({});
 	const [videos, setVideos] = useState([]);
-	const [selectedVideoId, setSelectedVideoId] = useState('');
-	const handleVideoClick = async (video) => {setSelectedVideoId(video.id);};
 
 	useEffect(() => {
 		async function fetchVideos(videoId) {
@@ -21,39 +21,44 @@ function Main() {
 				const response = await axios.get('http://3.145.198.110:80/videos');
 				const parsedVideos = JSON.parse(response.data.data);
 
-				if(videoId == '') videoId = parsedVideos.items[0].id;
-				const filteredVideos = parsedVideos.items.filter((item) =>{
-					return item.id != videoId;
-				});
+				if (!videoId) {
+					videoId = parsedVideos.items[0].id;
+					navigate(`/videos/${videoId}`);
+				} else {
+					const filteredVideos = parsedVideos.items.filter((item) => {
+						return item.id != videoId;
+					});
+					setVideos(filteredVideos);
 
-				setVideos(filteredVideos);
-
-				const detailsResponse = await axios.get(`http://3.145.198.110:80/videos/${videoId}`);
-				const parsedDetails = JSON.parse(detailsResponse.data.data);
-				setSelectedVideoDetails(parsedDetails);
+					const detailsResponse = await axios.get(`http://3.145.198.110:80/videos/${videoId}`);
+					const parsedDetails = JSON.parse(detailsResponse.data.data);
+					setSelectedVideoDetails(parsedDetails);
+				}
 			} catch (error) {
 				console.error(error);
 			}
 		}
 
-		fetchVideos(selectedVideoId);
-	}, [selectedVideoId]);
+		fetchVideos(videoId);
+	}, [videoId]);
 
-	return (
-		<div>
-			<header>
-				<NavBar />
-				<Hero thumbnail={selectedVideoDetails.image} />
-			</header>
-			<main>
-				<div className="details-comment-div">
-					<VideoDetails selectedVideoDetails={selectedVideoDetails} />
-					<Comments selectedVideoDetails={selectedVideoDetails} />
-				</div>
-				<NextVideos filteredVideos={videos} videoClick={handleVideoClick} />
-			</main>
-		</div>
-	);
+	if(videoId){
+		return (
+			<div>
+				<header>
+					<NavBar />
+					<Hero thumbnail={selectedVideoDetails.image} />
+				</header>
+				<main>
+					<div className="details-comment-div">
+						<VideoDetails selectedVideoDetails={selectedVideoDetails} />
+						<Comments selectedVideoDetails={selectedVideoDetails} />
+					</div>
+					<NextVideos filteredVideos={videos} />
+				</main>
+			</div>
+		);
+	}
 }
 
 export default Main;
